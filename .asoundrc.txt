@@ -1,0 +1,30 @@
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:1,0"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:0,0"
+  }
+}
+
+googlesamples-assistant-pushtotalk --project-id home-assistant-187518 --device-model-id home-assistant-187518-pi-74v2rp
+home-assistant-187518
+client_secret_420371611562-6l0qmpjfc9am3b77lcc4mri23n5f9gbq.apps.googleusercontent.com.json
+
+/home/${USER}/env/bin/python -u /home/${USER}/GassistPi/src/main.py --project_id home-assistant-187518 --device_model_id home-assistant-187518-pi-74v2rp
+
+sudo pigpiod
+pigs p 12 255
+pigs p 21 255
+pigs p 18 2
+
+/home/pi/GassistPi/audio-drivers/USB-MIC-JACK/scripts/usb-mic-onboard-jack.sh
